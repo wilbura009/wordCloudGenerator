@@ -14,10 +14,13 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
+
 <!---
     <button>Submit</button>
     <input type="button" onclick="submitData('userFile')" value="Submit" />
     --->
+
+<!---
     <!DOCTYPE html>
     <html>
         <head>
@@ -37,4 +40,12 @@
             <br>
         </body>
     </html> 
+    --->
 
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form action="/wordcloud/" method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
