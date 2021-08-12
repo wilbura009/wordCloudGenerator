@@ -5,7 +5,9 @@ from WCFunction import generateWordCloud
 from flask import Flask, render_template, request, redirect, url_for, flash, send_file
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = "/home/wilbura009/wordCloudGenerator/app"
+UPLOAD_FOLDER = os.path.abspath(__file__)
+UPLOAD_FOLDER = os.path.dirname(UPLOAD_FOLDER)
+
 ALLOWED_EXTENSIONS = {'txt', 'md'}
 
 app = Flask(__name__)
