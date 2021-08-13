@@ -1,4 +1,5 @@
 import os
+import random
 import datetime
 
 from WCFunction import generateWordCloud
@@ -12,6 +13,7 @@ ALLOWED_EXTENSIONS = {'txt', 'md'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.secret_key = str(random.random())
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -43,12 +45,12 @@ def submitClicked():
         # empty file without a filename.
         if file.filename == '':
             flash('No selected file')
-            return redirect(request.url)
+            return redirect(url_for('root'))
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             generateWordCloud(filename)
-            return redirect('/serveImg/')
+            return redirect(url_for('serveImage'))
 
 
 if __name__ == '__main__':
