@@ -16,17 +16,18 @@
 -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>WordCloud Generator</title>
-        <h1>WordCloud Generator</h1>
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
-        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    </head>
+    <body style="background-color: cadetblue; background-size: cover;">
+        <div style="display:block; margin-left:auto; margin-right:auto; background-color:beige;width:40%; paddint-top: 15px;padding-bottom: 15px;border-radius: 25px;">
+            <title>WordCloud Generator</title>
+            <h1>WordCloud Generator</h1>
+            <p>Submit a <u>.txt</u> file to generate a wordcloud from</p>
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+            <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <form action="/upload/" method=post enctype=multipart/form-data>
         <input type=file name=file>
         <input type=submit value=Upload>
     </form>
-    <body>
+        </div>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
