@@ -14,39 +14,27 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-
-<!---
-    <button>Submit</button>
-    <input type="button" onclick="submitData('userFile')" value="Submit" />
-    --->
-
-<!---
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <title>WordCloud Generator</title>
-            <script src="{{ url_for('static', filename='script.js') }}"></script>
-            <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        </head>
-        <body>
-
-            <h1 style="display:block; margin-left:auto; margin-right:auto;">WordCloud Generator</h1>
-            <label for="input">Select your input file:<br></label>
-            <br>
-            <form action = "http://localhost:5000/wordcloud" method = "POST" 
-                  enctype = "multipart/form-data">
-                <input type="file" name="file" accept="txt, md"> 
-                <button type="button" onclick="window.location.href='{{ url_for( 'submitClicked') }}';">Submit</button>
-            <br>
-        </body>
-    </html> 
-    --->
-
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WordCloud Generator</title>
+        <h1>WordCloud Generator</h1>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
     <form action="/upload/" method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
+        <input type=file name=file>
+        <input type=submit value=Upload>
     </form>
-
+    <body>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li<{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </body>
+</html>
