@@ -1,2 +1,2 @@
 # wordCloudGenerator
-WordCloud Generator sevice using Google App Engine .
+WordCloud Generator sevice using Google App Engine.
